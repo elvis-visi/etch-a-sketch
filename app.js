@@ -11,21 +11,30 @@ const container = document.querySelector('#container');
 
 //changing the div’s background color using JavaScript.
 
+function mouseEvent(event) {
+
+    if(event.type == 'mouseover')
+    {
+        event.target.style.backgroundColor = 'blue';
+    }
+    if (event.type == 'mouseout') {
+        event.target.style.backgroundColor = 'white'
+      }
+
+}
+
 
 for(let i =  1; i < 257; i++)
 {
     let div = document.createElement('div');  
     div.textContent= `div ${i}`  
 
-    div.addEventListener('mouseover' , () => {
-        div.style.backgroundColor = 'blue';
-    })
+    div.addEventListener('mouseover' , mouseEvent)
+    
 
     //add a class for default/mouseout 
 
-    div.addEventListener('mouseout' , () => {
-        div.style.backgroundColor = 'white';
-    })
+    div.addEventListener('mouseout' , mouseEvent)
 
     container.appendChild(div);  
 }
