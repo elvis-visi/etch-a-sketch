@@ -1,13 +1,21 @@
-#container {
+.divMain {
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-rows: 1fr;
 
 }
 
-#container div {
+.divMain div {
 
     border: solid black 1px;
+ 
 }
+
+.buttDiv {
+    text-align: center;
+}
+
+
+
+
