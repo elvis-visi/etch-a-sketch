@@ -4,10 +4,28 @@ const container = document.querySelector('#mainContainer')
 const grid = document.createElement('div');
 grid.classList.add('gridContainer')
 
+const options = document.createElement('div');
+options.classList.add('optionsContainer')
+
+const button1 = document.createElement('button');
+button1.textContent = 'Erase';
+const button2 = document.createElement('button');
+button2.textContent = 'Color';
+const button3 = document.createElement('button');
+button3.textContent = 'Random';
+
+
+const menu = document.createElement('div');
+menu.classList.add('menuContainer')
+
+menu.appendChild(options);
+
+container.appendChild(menu);
+
 
 //default grid size 0
-let gridSize = 0;
-
+let gridSize = 16;
+generateGrid() 
 
 function generateGrid() {
 
@@ -40,14 +58,9 @@ function generateGrid() {
         });
     }
 
-    //cells take the whole space of the grid container
-    const cells = document.querySelectorAll('.gridContainer div');
-    cells.forEach(cell => {
-        cell.style.height = `calc(100vh / ${gridSize})`;
-        cell.style.width = `calc(100vw / ${gridSize})`;
-});
 
-    container.appendChild(grid);
+
+    menu.appendChild(grid);
 
 }
 
@@ -70,6 +83,9 @@ button.addEventListener('click', ()=> {
 });
 
 //add button before the grid
-container.insertBefore(button,grid);
+options.appendChild(button);
+options.appendChild(button1);
+options.appendChild(button2);
+options.appendChild(button3);
 
 

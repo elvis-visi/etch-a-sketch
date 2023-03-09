@@ -1,9 +1,16 @@
+#mainContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .gridContainer {
   display: grid;
   grid-gap: 0;
   margin: 0;
   padding: 0;
- 
+  width: 500px;
+  height: 500px;
   }
 
   /*ensures that each cell is exactly 1/16th of the height and width of the viewport.
@@ -12,4 +19,23 @@
     background-color: white;
     border: 1px solid black;
   
+  }
+
+
+  .menuContainer{
+    display: flex;
+  
+    
+  }
+
+  .optionsContainer{
+    display: flex;
+  flex-direction: column;
+  
+  }
+
+  
+
+  .cell {
+    box-sizing: border-box;
   }
