@@ -8,7 +8,7 @@ grid.classList.add('gridContainer')
 //default grid size 16
 let gridSize = 16;
 
-//generate new grid. 
+
 function generateGrid() {
 
     //check if the grid element has any child elements, remove them if it does
@@ -42,5 +42,23 @@ function generateGrid() {
 
 generateGrid()
 
+
+// Add button to the top of the screen prompting grid size up to 100x100
+const button = document.createElement('button');
+button.textContent = 'New Grid';
+
+button.addEventListener('click', ()=> {
+    //prompt user for grid dimension
+
+    let input = prompt('Enter number of squares per side(max 100):');
+    if(input && input <=100 && input >= 1) {
+        gridSize = input;
+        generateGrid();
+    }
+
+});
+
+//add button before the grid
+container.insertBefore(button,grid);
 
 
