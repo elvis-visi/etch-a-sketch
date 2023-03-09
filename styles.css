@@ -1,8 +1,6 @@
 .gridContainer {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    grid-gap: 0;
+  display: grid;
+  grid-gap: 0;
   margin: 0;
   padding: 0;
  
@@ -12,8 +10,6 @@
    This makes the cells the same size as each other and ensures that they fill the entire viewport. */
   .gridContainer div {
     background-color: white;
-  border: 1px solid black;
-  height: calc(100vh / 16);
-  width: calc(100vw / 16);
-    
+    border: 1px solid black;
+  
   }

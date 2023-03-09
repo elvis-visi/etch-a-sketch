@@ -5,8 +5,8 @@ const grid = document.createElement('div');
 grid.classList.add('gridContainer')
 
 
-//default grid size 16
-let gridSize = 16;
+//default grid size 0
+let gridSize = 0;
 
 
 function generateGrid() {
@@ -15,6 +15,10 @@ function generateGrid() {
     while(grid.firstChild) {
         grid.removeChild(grid.firstChild);
     }
+
+    //add cols and rows template to grid
+     grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+     grid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
 
     //we empty the grid above, resetting it.
 
@@ -35,6 +39,13 @@ function generateGrid() {
             cell.style.backgroundColor = 'white';
         });
     }
+
+    //cells take the whole space of the grid container
+    const cells = document.querySelectorAll('.gridContainer div');
+    cells.forEach(cell => {
+        cell.style.height = `calc(100vh / ${gridSize})`;
+        cell.style.width = `calc(100vw / ${gridSize})`;
+});
 
     container.appendChild(grid);
 
