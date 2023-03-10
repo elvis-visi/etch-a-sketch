@@ -72,7 +72,13 @@ function generateGrid() {
 
         //initial cell that we click on changes color
         cell.addEventListener('mousedown', () => {
-        cell.style.backgroundColor = 'black';
+
+            if (eraserActive) {
+                cell.style.backgroundColor = 'white';
+              } else{
+                cell.style.backgroundColor = 'black';
+              }
+       
           });
 
     
@@ -80,17 +86,14 @@ function generateGrid() {
         //while left mouse is pressed, change the color of the cells to black
         cell.addEventListener('mouseover', (event) => {
             if (event.buttons === 1) { // 1 indicates left mouse button pressed
-              cell.style.backgroundColor = 'black';
+                if (eraserActive) {
+                    cell.style.backgroundColor = 'white';
+                  } else  {
+                    cell.style.backgroundColor = 'black';
+                  }
             }
           });
 
-          cell.addEventListener('mouseover', event => {
-            if (eraserActive) {
-              cell.style.backgroundColor = 'white';
-            } else if (event.buttons === 1) {
-              cell.style.backgroundColor = 'black';
-            }
-        });
        
     }
 
