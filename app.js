@@ -45,15 +45,21 @@ function generateGrid() {
         cell.classList.add('cell');
         grid.appendChild(cell);
 
-
-        //add mouseover event listener to change cell color
-        cell.addEventListener('mouseover', () => {
+        //initial cell that we click on changes color
+        cell.addEventListener('mousedown', () => {
             cell.style.backgroundColor = 'black';
-        })
+          });
 
-        cell.addEventListener('mouseout', () => {
-            cell.style.backgroundColor = 'white';
-        });
+        
+        //event.buttons equals 1, it means that only the left mouse button is being pressed.
+        //while left mouse is pressed, change the color of the cells to black
+        cell.addEventListener('mouseover', (event) => {
+            if (event.buttons === 1) { // 1 indicates left mouse button pressed
+              cell.style.backgroundColor = 'black';
+            }
+          });
+
+       
     }
 
 
