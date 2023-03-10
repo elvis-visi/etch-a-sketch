@@ -14,16 +14,35 @@ color.textContent = 'Color';
 const button3 = document.createElement('button');
 button3.textContent = 'Random';
 
+const clear = document.createElement('button');
+clear.textContent = 'Clear';
+
+
 
 let eraserActive = false;
+let colorActive = true;
 
-eraser.addEventListener('click',() =>{
-    //toggle eraser flag on click
-    eraserActive = !eraserActive;
-})
+// Set the active button flag and add event listeners to the buttons
+eraser.addEventListener('click', () => {
+    eraserActive = true;
+    colorActive = false;
+    eraser.classList.add('active');
+    color.classList.remove('active');
+});
 
+color.addEventListener('click', () => {
+    eraserActive = false;
+    colorActive = true;
+    color.classList.add('active');
+    eraser.classList.remove('active');
+});
+
+// Set the Color button as active by default
+color.classList.add('active');
+
+
+// new grid, erase, color, random, clear
 container.appendChild(options);
-
 
 
 
@@ -56,7 +75,7 @@ function generateGrid() {
         cell.style.backgroundColor = 'black';
           });
 
-        
+    
         //event.buttons equals 1, it means that only the left mouse button is being pressed.
         //while left mouse is pressed, change the color of the cells to black
         cell.addEventListener('mouseover', (event) => {
@@ -75,8 +94,6 @@ function generateGrid() {
        
     }
 
-
-
     container.appendChild(grid);
 
 }
@@ -85,10 +102,10 @@ generateGrid()
 
 
 // Add button to the top of the screen prompting grid size up to 100x100
-const button = document.createElement('button');
-button.textContent = 'New Grid';
+const newGrid = document.createElement('button');
+newGrid.textContent = 'New Grid';
 
-button.addEventListener('click', ()=> {
+newGrid.addEventListener('click', ()=> {
     //prompt user for grid dimension
 
     let input = prompt('Enter number of squares per side(max 100):');
@@ -100,9 +117,11 @@ button.addEventListener('click', ()=> {
 });
 
 //add button before the grid
-options.appendChild(button);
+options.appendChild(newGrid);
 options.appendChild(eraser);
 options.appendChild(color);
 options.appendChild(button3);
+options.appendChild(clear);
+
 
 
