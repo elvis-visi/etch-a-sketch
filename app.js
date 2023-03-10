@@ -7,14 +7,20 @@ grid.classList.add('gridContainer')
 const options = document.createElement('div');
 options.classList.add('optionsContainer')
 
-const button1 = document.createElement('button');
-button1.textContent = 'Erase';
-const button2 = document.createElement('button');
-button2.textContent = 'Color';
+const eraser = document.createElement('button');
+eraser.textContent = 'Erase';
+const color = document.createElement('button');
+color.textContent = 'Color';
 const button3 = document.createElement('button');
 button3.textContent = 'Random';
 
 
+let eraserActive = false;
+
+eraser.addEventListener('click',() =>{
+    //toggle eraser flag on click
+    eraserActive = !eraserActive;
+})
 
 container.appendChild(options);
 
@@ -47,7 +53,7 @@ function generateGrid() {
 
         //initial cell that we click on changes color
         cell.addEventListener('mousedown', () => {
-            cell.style.backgroundColor = 'black';
+        cell.style.backgroundColor = 'black';
           });
 
         
@@ -59,6 +65,13 @@ function generateGrid() {
             }
           });
 
+          cell.addEventListener('mouseover', event => {
+            if (eraserActive) {
+              cell.style.backgroundColor = 'white';
+            } else if (event.buttons === 1) {
+              cell.style.backgroundColor = 'black';
+            }
+        });
        
     }
 
@@ -88,8 +101,8 @@ button.addEventListener('click', ()=> {
 
 //add button before the grid
 options.appendChild(button);
-options.appendChild(button1);
-options.appendChild(button2);
+options.appendChild(eraser);
+options.appendChild(color);
 options.appendChild(button3);
 
 
