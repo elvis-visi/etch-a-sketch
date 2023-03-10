@@ -11,8 +11,15 @@ const eraser = document.createElement('button');
 eraser.textContent = 'Erase';
 const color = document.createElement('button');
 color.textContent = 'Color';
-const button3 = document.createElement('button');
-button3.textContent = 'Random';
+
+const toggleLines = document.createElement('button');
+toggleLines.textContent = 'Toggle Lines';
+toggleLines.classList.add('toggleButton')
+
+toggleLines.addEventListener('click', () => {
+ 
+  grid.classList.toggle('no-border');
+});
 
 const clear = document.createElement('button');
 clear.textContent = 'Clear';
@@ -72,8 +79,8 @@ colorPicker.addEventListener('input', (event) => {
 });
 
 
-//default grid size 25
-let gridSize = 25;
+//default grid size 50
+let gridSize = 50;
 generateGrid() 
 
 const gridSizeSlider = document.querySelector('#grid-size');
@@ -148,16 +155,19 @@ generateGrid()
 
 //add button before the grid
 
-options.appendChild(eraser);
+
 options.appendChild(colorPicker);
 options.appendChild(color);
-options.appendChild(button3);
+options.appendChild(eraser);
+//options.appendChild(button3);
 options.appendChild(clear);
 
 options.appendChild(document.createElement('br'));
 options.appendChild(document.createElement('br'));
-options.appendChild(document.createTextNode('Grid size: '));
+options.appendChild(document.createTextNode('Grid size(Resets current sketch)'));
 options.appendChild(gridSizeSlider);
 options.appendChild(gridSizeValue);
+options.appendChild(toggleLines);
+
 
 

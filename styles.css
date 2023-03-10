@@ -39,21 +39,13 @@ button {
 
 .gridContainer {
   display: grid;
-  grid-gap: 0;
-  margin: 0;
-  padding: 0;
   width: 500px;
   height: 500px;
-  }
-
-  /*ensures that each cell is exactly 1/16th of the height and width of the viewport.
-   This makes the cells the same size as each other and ensures that they fill the entire viewport. */
-  .gridContainer div {
-    background-color: white;
-    border: 1px solid black;
   
+ 
   }
 
+  
   input[type="color"] {
   
     width: 80px;
@@ -71,11 +63,19 @@ button {
   align-items: center;
   }
 
-  
-
+  /*when a user clicks and drags their mouse over the text, it won't be highlighted or selected.  */
   .cell {
-    box-sizing: border-box;
+    user-select: none;
+    background-color: white;
+    border: 1px solid black;
+   
   }
+
+
+  .no-border .cell {
+    border: none;
+  }
+ 
 
 
   
