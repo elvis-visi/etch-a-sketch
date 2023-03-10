@@ -72,10 +72,26 @@ colorPicker.addEventListener('input', (event) => {
 });
 
 
-
 //default grid size 25
 let gridSize = 25;
 generateGrid() 
+
+const gridSizeSlider = document.querySelector('#grid-size');
+const gridSizeValue = document.querySelector('#grid-size-value');
+
+gridSizeSlider.addEventListener('input', (event) => {
+  //value which appears below the slider
+  gridSizeValue.value = event.target.value;
+
+  //assigning actual dimensions of the grid 
+  gridSize =  gridSizeValue.value;
+  generateGrid() 
+
+});
+
+
+
+
 
 function generateGrid() {
 
@@ -130,29 +146,18 @@ function generateGrid() {
 
 generateGrid()
 
-
-// Add button to the top of the screen prompting grid size up to 100x100
-const newGrid = document.createElement('button');
-newGrid.textContent = 'New Grid';
-
-newGrid.addEventListener('click', ()=> {
-    //prompt user for grid dimension
-
-    let input = prompt('Enter number of squares per side(max 100):');
-    if(input && input <=100 && input >= 1) {
-        gridSize = input;
-        generateGrid();
-    }
-
-});
-
 //add button before the grid
-options.appendChild(newGrid);
+
 options.appendChild(eraser);
 options.appendChild(colorPicker);
 options.appendChild(color);
 options.appendChild(button3);
 options.appendChild(clear);
 
+options.appendChild(document.createElement('br'));
+options.appendChild(document.createElement('br'));
+options.appendChild(document.createTextNode('Grid size: '));
+options.appendChild(gridSizeSlider);
+options.appendChild(gridSizeValue);
 
 
