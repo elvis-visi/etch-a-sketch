@@ -1,7 +1,31 @@
+body{
+  background-color: lightgrey;
+
+}
+
+.title{
+  text-align: center;
+}
+
+.footer{
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+
+
 #mainContainer{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: center ;
+  justify-content: flex-start;
+  gap:100px;
+  max-width: 1100px;
+  /*  telling the browser to set the left and right margins of the container to auto, which
+   will effectively center it horizontally on the page, assuming there's enough available space.*/
+  margin: 0 auto;
 }
 
 .gridContainer {
@@ -22,16 +46,14 @@
   }
 
 
-  .menuContainer{
-    display: flex;
-  
-    
-  }
+
 
   .optionsContainer{
     display: flex;
   flex-direction: column;
-  
+  justify-content: center;
+  gap: 30px;
+width: 200px;
   }
 
   

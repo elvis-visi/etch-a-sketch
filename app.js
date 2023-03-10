@@ -15,12 +15,10 @@ const button3 = document.createElement('button');
 button3.textContent = 'Random';
 
 
-const menu = document.createElement('div');
-menu.classList.add('menuContainer')
 
-menu.appendChild(options);
+container.appendChild(options);
 
-container.appendChild(menu);
+
 
 
 //default grid size 0
@@ -60,7 +58,7 @@ function generateGrid() {
 
 
 
-    menu.appendChild(grid);
+    container.appendChild(grid);
 
 }
 
