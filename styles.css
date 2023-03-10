@@ -21,6 +21,10 @@ button.active {
   color: #fff;
 }
 
+button {
+  width: 100%;
+}
+
 
 #mainContainer{
   display: flex;
@@ -50,15 +54,21 @@ button.active {
   
   }
 
-
+  input[type="color"] {
+  
+    width: 80px;
+    height: 80px;
+    border: none;
+  }
 
 
   .optionsContainer{
     display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
-width: 200px;
+    gap: 30px;
+  width: 200px;
+  align-items: center;
   }
 
   

@@ -62,6 +62,16 @@ color.classList.add('active');
 // new grid, erase, color, random, clear
 container.appendChild(options);
 
+let currentColor = '#000000'; // initialize with black as the default color
+
+//create an input-type of color
+const colorPicker = document.createElement('input');
+colorPicker.type = 'color';
+colorPicker.addEventListener('input', (event) => {
+  currentColor = event.target.value;
+});
+
+
 
 //default grid size 25
 let gridSize = 25;
@@ -93,7 +103,7 @@ function generateGrid() {
             if (eraserActive) {
                 cell.style.backgroundColor = 'white';
               } else{
-                cell.style.backgroundColor = 'black';
+                cell.style.backgroundColor = currentColor;
               }
        
           });
@@ -106,7 +116,7 @@ function generateGrid() {
                 if (eraserActive) {
                     cell.style.backgroundColor = 'white';
                   } else  {
-                    cell.style.backgroundColor = 'black';
+                    cell.style.backgroundColor = currentColor;
                   }
             }
           });
@@ -139,6 +149,7 @@ newGrid.addEventListener('click', ()=> {
 //add button before the grid
 options.appendChild(newGrid);
 options.appendChild(eraser);
+options.appendChild(colorPicker);
 options.appendChild(color);
 options.appendChild(button3);
 options.appendChild(clear);
