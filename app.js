@@ -21,6 +21,7 @@ clear.textContent = 'Clear';
 
 let eraserActive = false;
 let colorActive = true;
+let clearActive = false;
 
 // Set the active button flag and add event listeners to the buttons
 eraser.addEventListener('click', () => {
@@ -37,6 +38,23 @@ color.addEventListener('click', () => {
     eraser.classList.remove('active');
 });
 
+//clear all cells 
+clear.addEventListener('click', () =>{
+
+    //Node List returned of all the elements which use cell as a class.
+   const cells = document.querySelectorAll('.cell');
+
+   cells.forEach(cell => {
+    cell.style.backgroundColor = 'white';
+   });
+
+    eraserActive = false;
+    colorActive = true;
+    color.classList.add('active');
+    eraser.classList.remove('active');
+
+});
+
 // Set the Color button as active by default
 color.classList.add('active');
 
@@ -45,9 +63,8 @@ color.classList.add('active');
 container.appendChild(options);
 
 
-
-//default grid size 0
-let gridSize = 16;
+//default grid size 25
+let gridSize = 25;
 generateGrid() 
 
 function generateGrid() {
