@@ -2,19 +2,42 @@ body{
   background-color: lightgrey;
 
 }
+body, header {
+  margin: 0;
+  padding: 0;
+}
+
+header h1 {
+  margin-top: 0;
+}
 
 .title{
   text-align: center;
   font-size: 50px;
+  background-color: grey;
 }
 
 .footer{
   text-align: center;
-  padding: 10px;
-  position: absolute;
+  /*element is positioned relative to the browser window, rather than to its containing element*/
+  position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;   /*fill the entire row */
+  background-color: grey;
+  padding: 12px;
 }
+a {
+  font-size:25px;
+}
+
+/* remove the default underline applied to links*/
+footer a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+
+}
+
 
 
 button.active {
@@ -68,13 +91,12 @@ button {
   .cell {
     user-select: none;
     background-color: white;
-    border: 1px solid black;
+    border: none;
    
   }
-
-
+  /* reversed with above */
   .no-border .cell {
-    border: none;
+   border: 1px solid black;
   }
  
 
@@ -102,12 +124,17 @@ button {
     width: 400px;
     height: 400px;
   }
+ 
+  a {
+    font-size: 16px;
+  }
 }
 
 
 @media (max-width: 650px) {
   .title {
     font-size: 35px;
+
   }
 
   /* show grid on top options-buttons */
@@ -118,6 +145,10 @@ button {
   .gridContainer {
     width: 300px;
     height: 300px;
+  }
+
+  a {
+    font-size: 12px;
   }
 }
 
