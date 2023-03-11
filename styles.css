@@ -5,6 +5,7 @@ body{
 
 .title{
   text-align: center;
+  font-size: 50px;
 }
 
 .footer{
@@ -77,5 +78,63 @@ button {
   }
  
 
+/* MEDIA QUERIES */
+
+@media (max-width: 1200px) {
+  #mainContainer {
+    justify-content: center;
+  }
+}
+
+
+
+@media (max-width: 850px) {
+  #mainContainer {
+    gap: 50px;
+  }
+
+  .optionsContainer {
+    width: 150px;
+    gap: 16px;
+  }
+
+  .gridContainer {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .title {
+    font-size: 35px;
+  }
+
+  /* show grid on top options-buttons */
+  #mainContainer {
+    flex-direction: column-reverse;
+  }
+
+  .gridContainer {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   
